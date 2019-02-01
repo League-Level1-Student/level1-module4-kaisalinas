@@ -21,7 +21,7 @@ public class BookOfIllusions extends MouseAdapter {
 	 * Here we are instantiating our BookOfIllusions class and calling it’s createBook() method. This is because we want to get out of the
 	 * static main method, so that we can add a click listener to each illusion.
 	 */
-
+	JLabel label;
 	public static void main(String[] args) throws Exception {
 		BookOfIllusions illusions = new BookOfIllusions();
 		illusions.createBook();
@@ -32,13 +32,14 @@ public class BookOfIllusions extends MouseAdapter {
 	private void createBook() {
 	    	// 2. make the frame visible
 		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// 3. set the size of the frame
 		frame.setSize(800,800);
 		// 4. find 2 images and save them to your project’s default package
 		// 5. make a variable to hold the location of your image. e.g. "illusion.jpg"
 		String imageLocation = "disc.jpg";
 		// 6. create a variable of type "JLabel" but don’t initialize it yet
-		JLabel label;
+		
 		// 7. use the "loadImage..." methods below to initialize your JLabel
 		label = loadImageFromComputer(imageLocation);
 		// 8. add your JLabel to the frame
@@ -53,11 +54,14 @@ public class BookOfIllusions extends MouseAdapter {
 		// 11. Print "clicked!" to the console when the mouse is pressed
 		System.out.println("Clicked");
 		// 12. remove everything from the frame that was added earlier
-		frame.removeAll();
+		frame = new JFrame();
+		frame.setVisible(true);
 		// 13. load a new image like before (this is more than one line of code)
 		String imageLocation = "spin.jpg";
-		
+		label = loadImageFromComputer(imageLocation);
+		frame.add(label);
 		// 14. pack the frame
+		frame.pack();
 	}
 
 	// [OPTIONAL] 15. goad your users with some annoying or witty pop-ups
