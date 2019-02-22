@@ -25,6 +25,7 @@ JButton button = new JButton();
 	panel.add(button);
 	panel.add(label);
 	
+	frame.pack();
 	
 }
 }
