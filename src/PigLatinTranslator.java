@@ -1,16 +1,21 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PigLatinTranslator {
+public class PigLatinTranslator implements MouseListener{
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
-	JLabel label = new JLabel();
-	JButton button = new JButton();
+	JLabel label = new JLabel("Test");
+	JButton button = new JButton("Translate");
 	JTextField textfield = new JTextField(15); 
-	 
+	
      	private static int firstVowel(String word) {
           word = word.toLowerCase();
           for (int i=0; i < word.length(); i++)
@@ -34,7 +39,7 @@ public class PigLatinTranslator {
 		panel.add(textfield);
 		panel.add(button);
 		panel.add(label);
-		
+		button.addMouseListener(this);
 		frame.pack();
 		
 	}
@@ -87,6 +92,44 @@ public class PigLatinTranslator {
           }
           return latin;
      }
+
+	
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		String s = translate(textfield.getText());
+		label.setText(s);
+		frame.pack();
+	}
+	
+	
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
      /**
      * Method to find the index of the first vowel in a word.
