@@ -42,14 +42,20 @@ public class WhackaMole implements MouseListener {
 				button.setText("Mole!");
 			}
 		}
+		
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		//System.out.println("hi");
+		JButton button = (JButton) e.getSource();
+		if(button.getText().equals("Mole")) {
+			
+		}
 		frame.dispose();
 		whack();
+		
 	}
 
 	@Override
